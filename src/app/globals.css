@@ -31,3 +31,21 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(270deg, #ff7e5f, #b8fe7b, #ad86e7, #e07fa7);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
