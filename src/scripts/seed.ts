@@ -1,14 +1,15 @@
-import { MongoClient } from 'mongodb';
-import dotenv from 'dotenv';
+const { MongoClient } = require('mongodb');
+const dotenv = require('dotenv');
 
 dotenv.config({ path: './.env.local' });
 
-const uri = process.env.MONGODB_URI as string;
+const uri = process.env.MONGODB_URI;
 
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+if (!uri) {
+  throw new Error('Please add your Mongo URI to .env.local');
+}
+
+const client = new MongoClient(uri);
 
 const movies = [
   {

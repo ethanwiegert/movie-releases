@@ -9,6 +9,9 @@ const Navbar = () => {
       <Link className="text-xl font-semibold" href="/">
         Home
       </Link>
+      <Link className="text-lg font-semibold" href="/movies">
+        Movies
+      </Link>
       <div>
         {/* {user ? (
           <>
