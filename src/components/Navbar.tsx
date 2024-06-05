@@ -6,13 +6,13 @@ const Navbar = () => {
 
   return (
     <nav className="flex items-center justify-between p-4 bg-gray-800 text-white w-full">
+      <div className="flex space-x-4">
       <Link className="text-xl font-semibold" href="/">
         Home
       </Link>
       <Link className="text-lg font-semibold" href="/movies">
         Movies
       </Link>
-      <div>
         {/* {user ? (
           <>
             <Link href="/profile" className="mr-4">
