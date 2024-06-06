@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next';
 import clientPromise from '../lib/mongodb';
 import { MongoClient } from 'mongodb';
 import Navbar from '@/components/Navbar';
+import "../app/globals.css";
 
 interface Movie {
   _id: {
@@ -78,21 +79,24 @@ interface MoviesProps {
 
 const Movies: React.FC<MoviesProps> = ({ movies }) => {
   return (
-    
     <div>
-      <Navbar />
-      <h1>Top 20 Movies of All Time</h1>
-      <p>
-        <small>(According to Metacritic)</small>
-      </p>
-      <ul>
-        {movies.map((movie) => (
-          <li key={movie._id.$oid}>
-            <h2>{movie.title}</h2>
-            <p>{movie.plot}</p>
-          </li>
-        ))}
-      </ul>
+    <Navbar />
+      <main className="flex flex-col items-center justify-center flex-1 px-20 text-center mt-8">
+        <div className="bg-black bg-opacity-20 p-8 rounded-lg w-full max-w-4xl">
+          <h1 className="text-4xl font-bold mb-4">Top 20 Movies of All Time</h1>
+          <p className="text-xl mb-8">
+            <small>(According to Metacritic)</small>
+          </p>
+          <ul className="space-y-6">
+            {movies.map((movie) => (
+              <li key={movie._id.$oid} className="bg-gray-300 p-6 rounded-lg">
+                <h2 className="text-2xl font-semibold mb-2">{movie.title}</h2>
+                <p className="text-lg">{movie.plot}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </main>
     </div>
   );
 };
