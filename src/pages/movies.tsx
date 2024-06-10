@@ -2,6 +2,8 @@
 import { GetServerSideProps } from 'next';
 import Navbar from '../components/Navbar';
 import { fetchUpcomingMovies } from '../lib/tmdb';
+import "../app/globals.css"
+import Link from 'next/link';
 
 interface Movie {
   id: number;
@@ -21,6 +23,7 @@ const Movies: React.FC<MoviesProps> = ({ movies }) => {
       <main className="flex flex-col items-center justify-center flex-1 px-20 text-center mt-8">
         <div className="bg-black bg-opacity-50 p-8 rounded-lg w-full max-w-4xl">
           <h1 className="text-4xl font-bold mb-4">Upcoming Movies</h1>
+          <h3>Provided by <Link href="https://www.themoviedb.org">TMDB (link)</Link></h3>
           <ul className="space-y-6">
             {movies.map((movie) => (
               <li key={movie.id} className="bg-gray-800 p-6 rounded-lg">
